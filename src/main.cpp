@@ -9,7 +9,7 @@
 #include <vector>
 #include <queue>
 
-// Prints every row of the maze to the screen
+// Prints the maze to the screen
 void printMaze(std::vector<std::string> maze)
 {
     for (int i = 0; i < maze.size(); i++)
@@ -18,7 +18,7 @@ void printMaze(std::vector<std::string> maze)
     }
 }
 
-// Solves the maze using BFS (Breadth-First Search with a queue).
+// Solves the maze using Breadth-First Search.
 // Returns true if a solution was found, false if no solution exists.
 // If solved, replaces '.' along the solution path with '-' directly in mazeRows.
 bool solveMaze(std::vector<std::string> &mazeRows, int width, int height)
@@ -118,9 +118,8 @@ bool solveMaze(std::vector<std::string> &mazeRows, int width, int height)
 }
 
 // Validates the maze contents after reading.
-// Checks: correct number of rows, correct row width,
-// only legal characters, and exactly one S and one E.
-// Prints a specific error to cerr and returns false if anything is wrong.
+// Checks: correct number of rows, correct row width, only legal characters, and exactly one S and one E.
+// Prints a errors to cerr and returns false if anything is wrong.
 bool validateMaze(std::vector<std::string> &mazeRows, int width, int height)
 {
     // Check that the number of rows matches the declared height
@@ -182,7 +181,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    // The maze filename is the first (and only) argument
+    // Get the filename from the command line argument
     std::string filename = argv[1];
 
     // Try to open the file
