@@ -12,7 +12,7 @@
 // Prints the maze to the screen
 void printMaze(std::vector<std::string> maze)
 {
-    for (int i = 0; i < maze.size(); i++)
+    for (int i = 0; i < (int)maze.size(); i++)
     {
         std::cout << maze[i] << std::endl;
     }
@@ -28,7 +28,7 @@ bool solveMaze(std::vector<std::string> &mazeRows, int width, int height)
 
     // Find the starting position 'S' in the maze
     int startRow = 0, startCol = 0;
-    for (int i = 0; i < mazeRows.size(); i++)
+    for (int i = 0; i < (int)mazeRows.size(); i++)
     {
         for (int j = 0; j < width; j++)
         {
@@ -123,7 +123,7 @@ bool solveMaze(std::vector<std::string> &mazeRows, int width, int height)
 bool validateMaze(std::vector<std::string> &mazeRows, int width, int height)
 {
     // Check that the number of rows matches the declared height
-    if (mazeRows.size() != height)
+    if ((int)mazeRows.size() != height)
     {
         std::cerr << "Error: Rows don't equal height" << std::endl;
         return false;
@@ -132,10 +132,10 @@ bool validateMaze(std::vector<std::string> &mazeRows, int width, int height)
     int numS = 0, numE = 0;
 
     // Check each row for correct width and valid characters
-    for (int i = 0; i < mazeRows.size(); i++)
+    for (int i = 0; i < (int)mazeRows.size(); i++)
     {
         // Each row must be exactly 'width' characters wide
-        if (mazeRows[i].length() != width)
+        if ((int)mazeRows[i].length() != width)
         {
             std::cerr << "Error: Columns don't equal width" << std::endl;
             return false;
